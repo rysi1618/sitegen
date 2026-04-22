@@ -1,6 +1,7 @@
 from textnode import *
 from htmlnode import *
 from inline_markdown import *
+from block_markdown import *
 
 def main():
     # new_node = TextNode("Anchor text", TextType.LINK, "https://www.boot.dev")
@@ -30,14 +31,25 @@ def main():
     # new_nodes = split_nodes_delimiter([node], "`", TextType.CODE)
     # print(new_nodes)
 
-    text = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
-    print(extract_markdown_images(text))
+    # text = "This is text with a ![rick roll](https://i.imgur.com/aKaOqIh.gif) and ![obi wan](https://i.imgur.com/fJRm4Vk.jpeg)"
+    # print(extract_markdown_images(text))
 
-    text = "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
-    print(extract_markdown_links(text))
+    # text = "This is text with a link [to boot dev](https://www.boot.dev) and [to youtube](https://www.youtube.com/@bootdotdev)"
+    # print(extract_markdown_links(text))
 
-    print(text_to_textnodes(f"This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"))
+    # print(text_to_textnodes(f"This is **text** with an _italic_ word and a `code block` and an ![obi wan image](https://i.imgur.com/fJRm4Vk.jpeg) and a [link](https://boot.dev)"))
 
+    md = """
+This is **bolded** paragraph
+text in a p
+tag here
+
+This is another paragraph with _italic_ text and `code` here
+
+    """
+
+    node = markdown_to_html_node(md)
+    print(node.to_html())
 
 if __name__ == "__main__":
     main()
